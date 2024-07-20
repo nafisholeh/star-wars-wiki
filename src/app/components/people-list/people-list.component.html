@@ -1,1 +1,12 @@
-<p>people-list works!</p>
+<div class="container mx-auto">
+    <h1 class="text-4xl font-bold mb-4">Star Wars Characters</h1>
+    <ul class="list-disc pl-5">
+        <li *ngFor="let person of people">
+            <a [routerLink]="['/people', person.url.split('/').reverse()[1]]">{{ person.name }}</a>
+        </li>
+    </ul>
+    <div class="mt-4">
+        <button (click)="previousPage()" [disabled]="!previous">Previous</button>
+        <button (click)="nextPage()" [disabled]="!next">Next</button>
+    </div>
+</div>
