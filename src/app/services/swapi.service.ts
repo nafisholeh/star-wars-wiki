@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { PeopleResponse, Person, Film, Species, Starship, Vehicle } from '@models/swapi.types';
 
 @Injectable({
@@ -16,27 +17,36 @@ export class SwapiService {
     return this.http.get<PeopleResponse>(`${this.baseUrl}/people/?page=${page}`);
   }
 
-  getPerson(id: number): Observable<Person> {
-    return this.http.get<Person>(`${this.baseUrl}/people/${id}`);
+  getPerson(id: number | null): Observable<Person> {
+    return this.fetchData<Person>(`${this.baseUrl}/people`, id);
   }
 
-  getFilm(id: number): Observable<Film> {
-    return this.http.get<Film>(`${this.baseUrl}/films/${id}`);
+  getFilm(id: number | null): Observable<Film> {
+    return this.fetchData<Film>(`${this.baseUrl}/films`, id);
   }
 
-  getSpecies(id: number): Observable<Species> {
-    return this.http.get<Species>(`${this.baseUrl}/species/${id}`);
+  getSpecies(id: number | null): Observable<Species> {
+    return this.fetchData<Species>(`${this.baseUrl}/species`, id);
   }
 
-  getStarship(id: number): Observable<Starship> {
-    return this.http.get<Starship>(`${this.baseUrl}/starships/${id}`);
+  getStarship(id: number | null): Observable<Starship> {
+    return this.fetchData<Starship>(`${this.baseUrl}/starships`, id);
   }
 
-  getVehicle(id: number): Observable<Vehicle> {
-    return this.http.get<Vehicle>(`${this.baseUrl}/vehicles/${id}`);
+  getVehicle(id: number | null): Observable<Vehicle> {
+    return this.fetchData<Vehicle>(`${this.baseUrl}/vehicles`, id);
   }
 
-  private extractId(url: string): number | null {
+  private fetchData<T>(url: string, id: number | null): Observable<T> {
+    if (id === null) {
+      return throwError(() => new Error('Invalid ID'));
+    }
+    return this.http.get<T>(`${url}/${id}`).pipe(
+      catchError(error => throwError(() => new Error(`Failed to fetch ${url.split('/').pop()}`)))
+    );
+  }
+
+  public extractId(url: string): number | null {
     try {
       const parts = url.split('/');
       const idPart = parts[parts.length - 2];
