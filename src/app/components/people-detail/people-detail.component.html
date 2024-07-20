@@ -1,1 +1,28 @@
-<p>people-detail works!</p>
+<div *ngIf="person" class="container mx-auto">
+    <h1 class="text-4xl font-bold mb-4">{{ person.name }}</h1>
+    <p><strong>Birth Year:</strong> {{ person.birth_year }}</p>
+    <p><strong>Gender:</strong> {{ person.gender }}</p>
+    <p><strong>Height:</strong> {{ person.height }}</p>
+    <p><strong>Mass:</strong> {{ person.mass }}</p>
+
+    <h2 class="text-2xl font-semibold mt-4">Films</h2>
+    <ul class="list-disc pl-5">
+        <li *ngFor="let film of films">{{ film.title }}</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mt-4">Species</h2>
+    <ul class="list-disc pl-5">
+        <li *ngFor="let spec of species">{{ spec.name }}</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mt-4">Starships</h2>
+    <ul class="list-disc pl-5">
+        <li *ngFor="let starship of starships">{{ starship.name }}</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mt-4">Vehicles</h2>
+    <ul class="list-disc pl-5">
+        <li *ngFor="let vehicle of vehicles">{{ vehicle.name }}</li>
+    </ul>
+</div>
+  
