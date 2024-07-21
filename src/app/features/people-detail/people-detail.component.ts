@@ -10,7 +10,6 @@ import { SwapiService } from '@services/swapi.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './people-detail.component.html',
-  styleUrl: './people-detail.component.scss'
 })
 export class PeopleDetailComponent {
   person: Person | null = null;

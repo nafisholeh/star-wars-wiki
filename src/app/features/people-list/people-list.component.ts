@@ -9,7 +9,6 @@ import { PeopleResponse, Person } from '@models/swapi.types';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './people-list.component.html',
-  styleUrl: './people-list.component.scss'
 })
 export class PeopleListComponent implements OnInit {
 
