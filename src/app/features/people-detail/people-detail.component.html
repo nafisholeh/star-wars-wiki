@@ -8,37 +8,51 @@
     <div *ngIf="person" class="flex flex-col justify-between lg:justify-center lg:flex-row h-full">
         <div class="flex flex-col lg:flex-row lg:items-end text-center lg:text-left lg:mx-10 mb-10 mt-10 lg:mt-0 lg:min-w-[600px]">
             <h1 class="text-7xl font-bold min-w-min mb-4 lg:mb-0">{{ person.name }}</h1>
-            <p class="lg:ml-3 font-semibold">{{ person.birth_year }}</p>
+            <p class="lg:ml-3" [ngClass]="{'font-semibold': person.birth_year !== 'n/a' && person.birth_year !== 'unknown', 'text-gray-600': person.birth_year === 'n/a' || person.birth_year === 'unknown'}">
+                {{ person.birth_year !== 'n/a' && person.birth_year !== 'unknown' ? person.birth_year : '' }}
+            </p>
         </div>
 
         <div class="bg-zinc-900 flex flex-col space-y-10 lg:flex-grow lg:items-end text-right lg:self-end min-h-min px-16 py-12 lg:rounded-tl-lg">
             <div class="grid grid-cols-5 gap-3">
                 <div>
-                    <p class="text-sm text-gray-500">Height</p>
-                    <p>{{ person.height }} cm</p>
+                    <p class="text-sm text-gray-500 mb-1">Height</p>
+                    <p [ngClass]="{'font-semibold': person.height !== 'n/a' && person.height !== 'unknown', 'text-gray-600': person.height === 'n/a' || person.height === 'unknown'}">
+                        {{ person.height !== 'n/a' && person.height !== 'unknown' ? person.height + ' cm' : 'N/A' }}
+                    </p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500">Mass</p>
-                    <p>{{ person.mass }} kg</p>
+                    <p class="text-sm text-gray-500 mb-1">Mass</p>
+                    <p [ngClass]="{'font-semibold': person.mass !== 'n/a' && person.mass !== 'unknown', 'text-gray-600': person.mass === 'n/a' || person.mass === 'unknown'}">
+                        {{ person.mass !== 'n/a' && person.mass !== 'unknown' ? person.mass + ' kg' : 'N/A' }}
+                    </p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500">Hair</p>
-                    <p>{{ person.hair_color }}</p>
+                    <p class="text-sm text-gray-500 mb-1">Hair</p>
+                    <p [ngClass]="{'font-semibold': person.hair_color !== 'n/a' && person.hair_color !== 'unknown', 'text-gray-600': person.hair_color === 'n/a' || person.hair_color === 'unknown'}">
+                        {{ person.hair_color !== 'n/a' && person.hair_color !== 'unknown' ? person.hair_color : 'N/A' }}
+                    </p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500">Skin</p>
-                    <p>{{ person.skin_color }}</p>
+                    <p class="text-sm text-gray-500 mb-1">Skin</p>
+                    <p [ngClass]="{'font-semibold': person.skin_color !== 'n/a' && person.skin_color !== 'unknown', 'text-gray-600': person.skin_color === 'n/a' || person.skin_color === 'unknown'}">
+                        {{ person.skin_color !== 'n/a' && person.skin_color !== 'unknown' ? person.skin_color : 'N/A' }}
+                    </p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500">Eye</p>
-                    <p>{{ person.eye_color }}</p>
+                    <p class="text-sm text-gray-500 mb-1">Eye</p>
+                    <p [ngClass]="{'font-semibold': person.eye_color !== 'n/a' && person.eye_color !== 'unknown', 'text-gray-600': person.eye_color === 'n/a' || person.eye_color === 'unknown'}">
+                        {{ person.eye_color !== 'n/a' && person.eye_color !== 'unknown' ? person.eye_color : 'N/A' }}
+                    </p>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 gap-4">
                 <div>
-                    <p class="text-sm text-gray-500">Gender</p>
-                    <p>{{ person.gender }}</p>
+                    <p class="text-sm text-gray-500 mb-1">Gender</p>
+                    <p [ngClass]="{'font-semibold': person.gender !== 'n/a' && person.gender !== 'unknown', 'text-gray-600': person.gender === 'n/a' || person.gender === 'unknown'}">
+                        {{ person.gender !== 'n/a' && person.gender !== 'unknown' ? person.gender : 'N/A' }}
+                    </p>
                 </div>
             </div>
 
