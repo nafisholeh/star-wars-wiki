@@ -7,8 +7,12 @@
 
     <div *ngIf="person" class="flex flex-col justify-between lg:justify-center lg:flex-row h-full">
         <div class="flex flex-col lg:flex-row lg:items-end text-center lg:text-left lg:mx-10 mb-10 mt-10 lg:mt-0 lg:min-w-[600px]">
-            <h1 class="text-7xl font-bold min-w-min mb-4 lg:mb-0">{{ person.name }}</h1>
-            <p class="lg:ml-3 mb-1" [ngClass]="{'font-semibold': person.birth_year !== 'n/a' && person.birth_year !== 'unknown', 'text-gray-600': person.birth_year === 'n/a' || person.birth_year === 'unknown'}">
+            <h1 class="text-7xl font-bold min-w-min mb-4 lg:mb-0" data-testid="person-name">{{ person.name }}</h1>
+            <p
+                class="lg:ml-3 mb-1"
+                [ngClass]="{'font-semibold': person.birth_year !== 'n/a' && person.birth_year !== 'unknown', 'text-gray-600': person.birth_year === 'n/a' || person.birth_year === 'unknown'}"
+                data-testid="person-birth-year"
+            >
                 {{ person.birth_year !== 'n/a' && person.birth_year !== 'unknown' ? person.birth_year : '' }}
             </p>
         </div>
@@ -17,7 +21,10 @@
             <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
                 <div>
                     <p class="text-sm text-gray-500 mb-1">Height</p>
-                    <p [ngClass]="{'font-semibold': person.height !== 'n/a' && person.height !== 'unknown', 'text-gray-600': person.height === 'n/a' || person.height === 'unknown'}">
+                    <p 
+                        [ngClass]="{'font-semibold': person.height !== 'n/a' && person.height !== 'unknown', 'text-gray-600': person.height === 'n/a' || person.height === 'unknown'}"
+                        data-testid="person-height"
+                    >
                         {{ person.height !== 'n/a' && person.height !== 'unknown' ? person.height + ' cm' : 'N/A' }}
                     </p>
                 </div>
@@ -62,7 +69,7 @@
                     <span *ngFor="let film of films" class="bg-slate-800 text-sm px-2 py-1 rounded">{{ film.title }}</span>
                 </div>
                 <ng-template #noFilms>
-                    <p class="text-sm text-gray-600">No Films available</p>
+                    <p class="text-sm text-gray-600" data-testid="empty-films">No Films available</p>
                 </ng-template>
             </div>
 
