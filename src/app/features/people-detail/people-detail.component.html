@@ -1,31 +1,86 @@
-<div *ngIf="person" class="container mx-auto">
-    <h1 class="text-4xl font-bold mb-4">{{ person.name }}</h1>
-    <p><strong>Birth Year:</strong> {{ person.birth_year }}</p>
-    <p><strong>Gender:</strong> {{ person.gender }}</p>
-    <p><strong>Height:</strong> {{ person.height }}</p>
-    <p><strong>Mass:</strong> {{ person.mass }}</p>
-    <p><strong>Eye Color:</strong> {{ person.eye_color }}</p>
-    <p><strong>Hair Color:</strong> {{ person.hair_color }}</p>
-    <p><strong>Skin Color:</strong> {{ person.skin_color }}</p>
+<div class="flex flex-col h-screen bg-cover bg-center bg-[url('/character-bg.png')] text-white">
 
-    <h2 class="text-2xl font-semibold mt-4">Films</h2>
-    <ul class="list-disc pl-5">
-        <li *ngFor="let film of films">{{ film.title }}</li>
-    </ul>
+    <div class="flex flex-col justify-center items-center py-4">
+        <img src="/star-wars-logo.png" alt="Logo" class="h-16 mb-9">
+        <h1 class="text-4xl font-bold">Meet the Legends</h1>
+    </div>
 
-    <h2 class="text-2xl font-semibold mt-4">Species</h2>
-    <ul class="list-disc pl-5">
-        <li *ngFor="let spec of species">{{ spec.name }}</li>
-    </ul>
+    <div *ngIf="person" class="flex flex-col justify-between lg:justify-center lg:flex-row h-full">
+        <div class="flex flex-col lg:flex-row lg:items-end text-center lg:text-left lg:mx-10 mb-10 mt-10 lg:mt-0 lg:min-w-[600px]">
+            <h1 class="text-7xl font-bold min-w-min mb-4 lg:mb-0">{{ person.name }}</h1>
+            <p class="lg:ml-3 font-semibold">{{ person.birth_year }}</p>
+        </div>
 
-    <h2 class="text-2xl font-semibold mt-4">Starships</h2>
-    <ul class="list-disc pl-5">
-        <li *ngFor="let starship of starships">{{ starship.name }}</li>
-    </ul>
+        <div class="bg-zinc-900 flex flex-col space-y-10 lg:flex-grow lg:items-end text-right lg:self-end min-h-min px-16 py-12 lg:rounded-tl-lg">
+            <div class="grid grid-cols-5 gap-3">
+                <div>
+                    <p class="text-sm text-gray-500">Height</p>
+                    <p>{{ person.height }} cm</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500">Mass</p>
+                    <p>{{ person.mass }} kg</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500">Hair</p>
+                    <p>{{ person.hair_color }}</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500">Skin</p>
+                    <p>{{ person.skin_color }}</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500">Eye</p>
+                    <p>{{ person.eye_color }}</p>
+                </div>
+            </div>
 
-    <h2 class="text-2xl font-semibold mt-4">Vehicles</h2>
-    <ul class="list-disc pl-5">
-        <li *ngFor="let vehicle of vehicles">{{ vehicle.name }}</li>
-    </ul>
+            <div class="grid grid-cols-1 gap-4">
+                <div>
+                    <p class="text-sm text-gray-500">Gender</p>
+                    <p>{{ person.gender }}</p>
+                </div>
+            </div>
+
+            <div>
+                <p class="text-sm text-gray-500 mb-2">Films</p>
+                <div *ngIf="films.length > 0; else noFilms" class="flex flex-wrap justify-end gap-2">
+                    <span *ngFor="let film of films" class="bg-slate-800 text-sm px-2 py-1 rounded">{{ film.title }}</span>
+                </div>
+                <ng-template #noFilms>
+                    <p class="text-sm text-gray-600">No Films available</p>
+                </ng-template>
+            </div>
+
+            <div>
+                <p class="text-sm text-gray-500 mb-2">Species</p>
+                <div *ngIf="species.length > 0; else noSpecies" class="flex flex-wrap justify-end gap-2">
+                    <span *ngFor="let spec of species" class="bg-slate-800 text-sm px-2 py-1 rounded">{{ spec.name }}</span>
+                </div>
+                <ng-template #noSpecies>
+                    <p class="text-sm text-gray-600">No Species available</p>
+                </ng-template>
+            </div>
+
+            <div>
+                <p class="text-sm text-gray-500 mb-2">Starships</p>
+                <div *ngIf="starships.length > 0; else noStarships" class="flex flex-wrap justify-end gap-2">
+                    <span *ngFor="let starship of starships" class="bg-slate-800 text-sm px-2 py-1 rounded">{{ starship.name }}</span>
+                </div>
+                <ng-template #noStarships>
+                    <p class="text-sm text-gray-600">No starships available</p>
+                </ng-template>
+            </div>
+
+            <div>
+                <p class="text-sm text-gray-500 mb-2">Vehicles</p>
+                <div *ngIf="vehicles.length > 0; else noVehicles" class="flex flex-wrap justify-end gap-2">
+                    <span *ngFor="let vehicle of vehicles" class="bg-slate-800 text-sm px-2 py-1 rounded">{{ vehicle.name }}</span>
+                </div>
+                <ng-template #noVehicles>
+                    <p class="text-sm text-gray-600">No vehicles available</p>
+                </ng-template>
+            </div>
+        </div>
+    </div>
 </div>
-  
