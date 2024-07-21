@@ -14,7 +14,7 @@
         </div>
 
         <div class="bg-zinc-900 flex flex-col space-y-10 lg:flex-grow lg:items-end text-right lg:self-end min-h-min px-16 py-12 lg:rounded-tl-lg">
-            <div class="grid grid-cols-5 gap-3">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
                 <div>
                     <p class="text-sm text-gray-500 mb-1">Height</p>
                     <p [ngClass]="{'font-semibold': person.height !== 'n/a' && person.height !== 'unknown', 'text-gray-600': person.height === 'n/a' || person.height === 'unknown'}">
@@ -39,7 +39,7 @@
                         {{ person.skin_color !== 'n/a' && person.skin_color !== 'unknown' ? person.skin_color : 'N/A' }}
                     </p>
                 </div>
-                <div>
+                <div class="col-span-2 md:col-span-1">
                     <p class="text-sm text-gray-500 mb-1">Eye</p>
                     <p [ngClass]="{'font-semibold': person.eye_color !== 'n/a' && person.eye_color !== 'unknown', 'text-gray-600': person.eye_color === 'n/a' || person.eye_color === 'unknown'}">
                         {{ person.eye_color !== 'n/a' && person.eye_color !== 'unknown' ? person.eye_color : 'N/A' }}
