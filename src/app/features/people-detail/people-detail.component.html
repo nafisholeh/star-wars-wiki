@@ -8,7 +8,7 @@
     <div *ngIf="person" class="flex flex-col justify-between lg:justify-center lg:flex-row h-full">
         <div class="flex flex-col lg:flex-row lg:items-end text-center lg:text-left lg:mx-10 mb-10 mt-10 lg:mt-0 lg:min-w-[600px]">
             <h1 class="text-7xl font-bold min-w-min mb-4 lg:mb-0">{{ person.name }}</h1>
-            <p class="lg:ml-3" [ngClass]="{'font-semibold': person.birth_year !== 'n/a' && person.birth_year !== 'unknown', 'text-gray-600': person.birth_year === 'n/a' || person.birth_year === 'unknown'}">
+            <p class="lg:ml-3 mb-1" [ngClass]="{'font-semibold': person.birth_year !== 'n/a' && person.birth_year !== 'unknown', 'text-gray-600': person.birth_year === 'n/a' || person.birth_year === 'unknown'}">
                 {{ person.birth_year !== 'n/a' && person.birth_year !== 'unknown' ? person.birth_year : '' }}
             </p>
         </div>
