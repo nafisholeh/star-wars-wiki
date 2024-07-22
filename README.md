@@ -1,27 +1,39 @@
 # StarWarsWiki
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+This is an Angular application that provides information about Star Wars characters, films, species, starships, and vehicles.
 
-## Development server
+https://github.com/user-attachments/assets/2eedd1c5-c53f-4a6a-9ec7-36d53b567549
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- Display a list of Star Wars characters
+- View details for each character
+- Navigate through pages of characters
+- Responsive design with Tailwind CSS
+- Server-side rendering with Angular Universal
+- Deployment to Heroku and GitHub Pages
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Getting Started
 
-## Build
+1. **Clone the repository:**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   ```sh
+   git clone https://github.com/your-username/star-wars-wiki.git
+   cd star-wars-wiki
+   ```
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+3. **Run the app:**
+   ```sh
+   npm start
+   ```
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
 ## Further help
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
